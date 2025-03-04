@@ -1,4 +1,4 @@
-from stats import get_book_length
+from stats import get_book_length, get_count_of_characters
 def get_book_text():
     path_to_file = "books/frankenstein.txt"
     file_content = ""
@@ -8,10 +8,15 @@ def get_book_text():
     
 
 def main():
-    book = get_book_text()
-    
-    num_of_words = get_book_length(book)
-    print(f"{num_of_words} words found in the document")
+    try:
+        book = get_book_text()
+        book_length = get_book_length(book)
+        character_dictionary = get_count_of_characters(book)
+        print(f"{book_length} words found in the document")
+        print(character_dictionary)
+        
+    except Exception as error:
+        print(error)
     
     
 main()
